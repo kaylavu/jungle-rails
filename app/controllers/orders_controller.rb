@@ -42,6 +42,8 @@ class OrdersController < ApplicationController
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
+    puts "STRIPE EMAIL"
+    puts params[:stripeEmail]
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i
