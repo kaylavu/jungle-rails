@@ -25,6 +25,14 @@
     <aside class="quantity"> SOLD OUT!</aside>
   <% end %>
 
+  <aside class="average-review"> 
+  <% if product.reviews.average(:rating).to_f.round(1) < 1 %>
+  <p> No Reviews </p>
+  <% else %>
+  AVG REVIEW: <%= product.reviews.average(:rating).to_f.round(1)%>
+  <% end %>
+  </aside>
+
 
 
 </article>

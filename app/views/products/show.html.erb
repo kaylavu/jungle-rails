@@ -26,6 +26,29 @@
       </div>
     </div>
 
+  <% if current_user %>
+  <%= form_for [@product, @review] do |f| %>
+  <%= f.select :rating, choices=[1, 2, 3, 4, 5] %>
+  Description: <%= f.text_area :description %>
+  <%= f.submit %>
+  <% end %>
+  <%end%>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Rating</th>
+          <th>Username</th>
+          <th>Description</th>
+          <th> </th>
+        </tr>
+      </thead>
+      <tbody>
+       <%= render @reviews %>
+      </tbody>
+    </table>
+
   </article>
 
 </section>

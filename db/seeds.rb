@@ -133,4 +133,29 @@ cat3.products.create!({
 })
 
 
+## REVIEWS 
+
+prod1 = Product.find_or_create_by! name: 'Red Bookshelf'
+prod2 = Product.find_or_create_by! name: 'Hotdog Slicer'
+prod3 = Product.find_or_create_by! name: 'Hipster Hat'
+
+prod1.reviews.create!({
+  user_id: 1,
+  description: "Excellent Stuff",
+  rating: 5,
+})
+
+prod2.reviews.create!({
+  user_id: 1,
+  description: "Meh stuff",
+  rating: 3,
+})
+
+prod2.reviews.create!({
+  user_id: 1,
+  description: "Bad stuff",
+  rating: 1,
+})
+
+
 puts "DONE!"
