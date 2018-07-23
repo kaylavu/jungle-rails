@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
+  describe 'Validations' do 
   it "is valid with valid attributes" do
     @category = Category.find_or_create_by! name:"Apparel"
     @product = @category.products.create! ({
@@ -38,8 +39,7 @@ RSpec.describe Product, type: :model do
       name:  'Men\'s Classy shirt',
       price: 64.99
     })
-    expect(@product.id).to be_nil
-    puts @product.errors.full_messages
+    expect(@product.id).to be_nil 
   end 
 
   it "is not valid without a category" do 
@@ -51,5 +51,6 @@ RSpec.describe Product, type: :model do
     })
     expect(@product.id).to be_nil
   end 
+end 
 
 end
