@@ -7,7 +7,6 @@
   <article class="product-detail">
 
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -26,13 +25,19 @@
       </div>
     </div>
 
+
+ <dl class="dl-verticle">
   <% if current_user %>
+   
   <%= form_for [@product, @review] do |f| %>
   <%= f.select :rating, choices=[1, 2, 3, 4, 5] %>
   Description: <%= f.text_area :description %>
   <%= f.submit %>
   <% end %>
   <%end%>
+   </dl>
+  
+ 
 
 
     <table class="table table-bordered">
@@ -48,6 +53,8 @@
        <%= render @reviews %>
       </tbody>
     </table>
+
+
 
   </article>
 
